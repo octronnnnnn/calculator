@@ -3,10 +3,10 @@
 }
 
 body {
-    margin-top: 25px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(44, 44, 44);
 }
 
 #calculator {
@@ -18,7 +18,7 @@ body {
     height: 400px;
     border: solid black 1px;
     border-radius: 8px;
-    background-color: rgb(100, 40, 80);
+    background-color: rgb(95, 36, 75);
     border: solid rgb(30, 30, 30) 2px;
 }
 
@@ -27,8 +27,8 @@ body {
     width: 235px;
     height: 80px;
     border: solid 1px rgb(30, 30, 30);
-    background-color: rgb(63, 99, 153);
-    color: rgb(127, 206, 127);
+    background-color: rgb(54, 93, 151);
+    color: rgb(59, 199, 59);
     border-radius: 2px;  
     display: flex;
     flex-direction: column;  
