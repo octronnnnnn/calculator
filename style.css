@@ -38,12 +38,14 @@ body {
 #calculation {
     margin-left: 10px;
     margin-top: 8px;
+    font-size: 16px;
 }
 
 #outcome {
     text-align: end;
     margin-right: 10px;
     margin-bottom: 6px;
+    font-size: 24px;
 }
 
 #buttonContainer {
@@ -67,12 +69,12 @@ body {
 }
 
 .button {
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(120, 240, 200);
     padding: 1rem 0;
     width: 55px;
     text-align: center;
     border-radius: 50%;
-    color: rgb(200, 0, 0);
+    color: rgb(83, 155, 130);
     font-weight: bold;
 }
 
@@ -82,8 +84,36 @@ body {
 
 #equal {
     width: 120px ;
+    background-color: rgb(224, 205, 95);
 }
 
 #clear {
     width: 185px;
+    background-color: rgb(184, 81, 81);
+    color: aliceblue;
+}
+
+.operator {
+    background-color: rgb(83, 155, 130);
+    color: rgb(133, 255, 214);
+}
+
+#clear:hover {
+    background-color: rgb(211, 94, 94);
+}
+
+.operator:hover {
+    background-color: rgb(97, 182, 152);
+}
+
+.number:hover {
+    background-color: rgb(150, 255, 220);
+}
+
+#dot:hover {
+    background-color: rgb(150, 255, 220);
+}
+
+#equal:hover {
+    background-color: rgb(247, 227, 115);
 }
