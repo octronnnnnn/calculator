@@ -89,12 +89,13 @@ body {
 #equal {
     width: 120px ;
     background-color: rgb(224, 205, 95);
+    color: rgb(73, 146, 122);
 }
 
 #clear {
     width: 185px;
     background-color: rgb(184, 81, 81);
-    color: aliceblue;
+    color: rgb(149, 255, 220);
 }
 
 .operator {
@@ -104,27 +105,22 @@ body {
 
 #clear:hover {
     background-color: rgb(211, 94, 94);
-    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .operator:hover {
     background-color: rgb(97, 182, 152);
-    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .number:hover {
     background-color: rgb(150, 255, 220);
-    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 #dot:hover {
     background-color: rgb(150, 255, 220);
-    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 #equal:hover {
     background-color: rgb(247, 227, 115);
-    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .button:active {
