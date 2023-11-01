@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // reference all components/buttons 
+    const numbers = document.querySelectorAll(".number");
+    numbers.forEach((number) => {
+        number.addEventListener("click", () => {
+            alert("hi");
+        })
+    })
+
+
+    let operator = "";
+    let firstOperand = "";
+    let secondOperand = "";
+})
+
+
 function add(a, b) {
     return a + b;
 }
@@ -14,27 +30,21 @@ function divide(a, b) {
     return a / b;
 }
 
-let operator = "";
-let firstOperand = "";
-let secondOperand = "";
-
-function operate(operator, a, b) {
+function calculate(operator, a, b) {
     switch (operator) {
-        case 0:
-            operator = "+";
+        case "+":
             add(a, b);
             break;
-        case 1:
-            operator = "-";
+        case "-":
             subtract(a, b);
             break;
-        case 2:
-            operator = "*";
+        case "x":
             multiply(a, b);
             break;
-        case 3:
-        operator = "/";
+        case "/":
         divide(a, b);
         break; 
+        default:
+            alert("error");
     }
 }
