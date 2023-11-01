@@ -20,6 +20,7 @@ body {
     border-radius: 8px;
     background-color: rgb(95, 36, 75);
     border: solid rgb(30, 30, 30) 2px;
+    box-shadow: 5px 5px rgb(38, 38, 38);
 }
 
 #display {
@@ -33,6 +34,8 @@ body {
     display: flex;
     flex-direction: column;  
     justify-content: space-between;
+    box-shadow: inset 1em 0em 1em -1em rgb(31, 49, 75),
+                inset -0 -1em 1em -1em rgb(31, 49, 75);
 }
 
 #calculation {
@@ -76,6 +79,7 @@ body {
     border-radius: 50%;
     color: rgb(83, 155, 130);
     font-weight: bold;
+    box-shadow: 0 4px rgb(40, 40, 40);
 }
 
 #equal, #clear {
@@ -100,24 +104,30 @@ body {
 
 #clear:hover {
     background-color: rgb(211, 94, 94);
+    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .operator:hover {
     background-color: rgb(97, 182, 152);
+    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .number:hover {
     background-color: rgb(150, 255, 220);
+    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 #dot:hover {
     background-color: rgb(150, 255, 220);
+    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 #equal:hover {
     background-color: rgb(247, 227, 115);
+    box-shadow: 0 2px rgb(40, 40, 40);
 }
 
 .button:active {
     transform: translateY(2px);
+    box-shadow: 0 2px rgb(40, 40, 40);
   }
