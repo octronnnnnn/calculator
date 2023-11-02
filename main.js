@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("i clear things!");
     })
 
+    const deleteBtn = document.querySelector("#delete");
+    deleteBtn.addEventListener("click", () => {
+        alert("i delete the last entry");
+    })
+
     const equalBtn = document.querySelector("#equal");
     equalBtn.addEventListener("click", () => {
         alert("i calculate things!");

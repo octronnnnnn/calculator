@@ -93,9 +93,14 @@ body {
 }
 
 #clear {
-    width: 185px;
+    width: 120px;
     background-color: rgb(184, 81, 81);
     color: rgb(149, 255, 220);
+}
+
+#delete {
+    background-color: rgb(26, 141, 141);
+    color: rgb(133, 255, 214);
 }
 
 .operator {
@@ -105,6 +110,10 @@ body {
 
 #clear:hover {
     background-color: rgb(211, 94, 94);
+}
+
+#delete:hover {
+    background-color: rgb(33, 165, 165);
 }
 
 .operator:hover {
