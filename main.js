@@ -1,76 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // reference all components/buttons 
-    const numberBtns = document.querySelectorAll(".number");
-    numberBtns.forEach((number) => {
-        number.addEventListener("click", () => {
-            alert("im a number!");
-        })
-    })
-
-    const operatorBtns = document.querySelectorAll(".operator");
-    operatorBtns.forEach((operator) => {
-        operator.addEventListener("click", () => {
-            alert("im an operator");
-        })
-    })
-
-    const dotBtn = document.querySelector("#dot");
-    dotBtn.addEventListener("click", () => {
-        alert(".");
-    })
-
-    const clearBtn = document.querySelector("#clear");
-    clearBtn.addEventListener("click", () => {
-        alert("i clear things!");
-    })
-
-    const deleteBtn = document.querySelector("#delete");
-    deleteBtn.addEventListener("click", () => {
-        alert("i delete the last entry");
-    })
-
-    const equalBtn = document.querySelector("#equal");
-    equalBtn.addEventListener("click", () => {
-        alert("i calculate things!");
-    })
-
+    let currentNum = "";
+    let previousNum = "";
     let operator = "";
-    let firstOperand = "";
-    let secondOperand = "";
-})
+    let result;
 
+    // reference all components
+    let calculationDisplay = document.querySelector("#calculation");
+    let outcomeDisplay = document.querySelector("#outcome");
+    const numberBtns = document.querySelectorAll(".number");
+    const operatorBtns = document.querySelectorAll(".operator");
+    const clearBtn = document.querySelector("#clear");
+    const decimalBtn = document.querySelector("#decimal");
+    const deleteBtn = document.querySelector("#delete");
+    const equalBtn = document.querySelector("#equal");
+    
+    // add event listeners
+    numberBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            handleNumber(e.target.textContent);
+        })
+    })
 
-function add(a, b) {
-    return a + b;
-}
+    operatorBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            handleOperator(e.target.textContent);
+        })
+    })
 
-function subtract(a, b) {
-    return a - b;
-}
+    equalBtn.addEventListener("click", () => {
+        calculate(operator, previousNum, currentNum);
+        outcomeDisplay.textContent = result;
+        calculationDisplay.textContent = "";
+        currentNum = result;
+        previousNum = "";
+    })
 
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
-function calculate(operator, a, b) {
-    switch (operator) {
-        case "+":
-            add(a, b);
-            break;
-        case "-":
-            subtract(a, b);
-            break;
-        case "x":
-            multiply(a, b);
-            break;
-        case "/":
-        divide(a, b);
-        break; 
-        default:
-            alert("error");
+    // functions
+    function handleNumber(n) {
+        currentNum += n;
+        outcomeDisplay.textContent = currentNum;
     }
-}
+
+    function handleOperator(op) {
+        operator = op;
+        previousNum = currentNum;
+        calculationDisplay.textContent = outcomeDisplay.textContent;
+        calculationDisplay.textContent += operator;
+        outcomeDisplay.textContent = "";
+        currentNum = "";
+    }
+
+    //math
+    function add(a, b) {
+        return a + b;
+    }
+    
+    function subtract(a, b) {
+        return a - b;
+    }
+    
+    function multiply(a, b) {
+        return a * b;
+    }
+    
+    function divide(a, b) {
+        return a / b;
+    }
+    
+    function calculate(operator, a, b) {
+        a = Number(a);
+        b = Number(b);
+        switch (operator) {
+            case "+":
+                result = add(a, b);
+                break;
+            case "-":
+                result = subtract(a, b);
+                break;
+            case "×":
+                result = multiply(a, b);
+                break;
+            case "÷":
+                result = divide(a, b);
+                break; 
+            default:
+                alert("error");
+        }
+    }
+
+
