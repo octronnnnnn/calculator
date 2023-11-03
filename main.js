@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
     function clearAll() {
         currentNum = "";
         previousNum = "";
@@ -114,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         calculationDisplay.textContent = "";
         outcomeDisplay.textContent = "";
     }
-
 
     function deleteLastEntry() {
         if(outcomeDisplay.textContent !== "") {
