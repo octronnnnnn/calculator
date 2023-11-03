@@ -42,6 +42,12 @@
         }
     })
 
+    clearBtn.addEventListener("click", clearAll)
+
+    deleteBtn.addEventListener("click", deleteLastEntry)
+
+    decimalBtn.addEventListener("click", appendDecimal)
+
     // functions
     function handleNumber(n) {
         if (step === 0) {
@@ -78,6 +84,30 @@
             calculationDisplay.textContent += operator;
             outcomeDisplay.textContent = "";
             currentNum = "";
+        }
+    }
+
+    function clearAll() {
+        currentNum = "";
+        previousNum = "";
+        operator = "";
+        step = 0;
+        result ="";
+        calculationDisplay.textContent = "";
+        outcomeDisplay.textContent = "";
+    }
+
+    function deleteLastEntry() {
+        if(outcomeDisplay.textContent !== "") {
+            currentNum = currentNum.slice(0, -1);
+            outcomeDisplay.textContent = outcomeDisplay.textContent.slice(0, -1);
+        }
+    }
+
+    function appendDecimal() {
+        if (step === 1 && !outcomeDisplay.textContent.includes(".")) {
+            outcomeDisplay.textContent += ".";
+            currentNum += ".";
         }
     }
 
