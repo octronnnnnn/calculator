@@ -28,11 +28,17 @@
     })
 
     equalBtn.addEventListener("click", () => {
-        if (step === 1 && previousNum === "") {
+        if (step === 0 && previousNum === "" || step === 1 && previousNum === "" || previousNum !== "" && step === 2) {
             return;
         }
         else {
+            if (operator === "÷" && currentNum === "0") {
+                clearAll();
+                outcomeDisplay.textContent = "Cannot divide by 0!"
+                return;
+            }
             calculate(operator, previousNum, currentNum);
+            result = round(result);
             outcomeDisplay.textContent = result;
             calculationDisplay.textContent = "";
             currentNum = result;
@@ -55,11 +61,11 @@
             currentNum = "";
             previousNum = "";
         }
-        step = 1;
-        console.log(step);
-        currentNum += n;
-        outcomeDisplay.textContent = currentNum;
-        console.log(currentNum);
+        if (outcomeDisplay.textContent.length < 11) {
+            step = 1;
+            currentNum += n;
+            outcomeDisplay.textContent = currentNum; 
+        }       
     }
 
     function handleOperator(op) {  
@@ -68,22 +74,22 @@
         step === 0 && op === "+" && currentNum === "") {
             return;
         }
-        else if (step === 0 && op === "-") {
+        else if (step === 0 && op === "-" && currentNum === "") {
             operator = op;
             currentNum = op;
             outcomeDisplay.textContent = currentNum;
-            console.log(currentNum)
             step = 2;
+            console.log(step);
         }  
         else if (step !== 2) {
             step = 2;
-            console.log(step);
             operator = op;
             previousNum = currentNum;
             calculationDisplay.textContent = outcomeDisplay.textContent;
             calculationDisplay.textContent += operator;
             outcomeDisplay.textContent = "";
             currentNum = "";
+            console.log(step);
         }
     }
 
@@ -95,6 +101,7 @@
         result ="";
         calculationDisplay.textContent = "";
         outcomeDisplay.textContent = "";
+        console.log(step);
     }
 
     function deleteLastEntry() {
@@ -128,11 +135,16 @@
                 result = divide(a, b);
                 break; 
             default:
-                alert("error");
+                return;
         }
     }
 
-    //math
+    function round(n) {
+        n = parseFloat(n).toFixed(2);
+        return n;
+    }
+
+    // math
     function add(a, b) {
         return a + b;
     }
