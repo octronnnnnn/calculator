@@ -1,7 +1,8 @@
     let currentNum = "";
     let previousNum = "";
     let operator = "";
-    let result;
+    let step = 0;
+    let result ="";
 
     // reference all components
     let calculationDisplay = document.querySelector("#calculation");
@@ -27,45 +28,59 @@
     })
 
     equalBtn.addEventListener("click", () => {
-        calculate(operator, previousNum, currentNum);
-        outcomeDisplay.textContent = result;
-        calculationDisplay.textContent = "";
-        currentNum = result;
-        previousNum = "";
+        if (step === 1 && previousNum === "") {
+            return;
+        }
+        else {
+            calculate(operator, previousNum, currentNum);
+            outcomeDisplay.textContent = result;
+            calculationDisplay.textContent = "";
+            currentNum = result;
+            previousNum = "";
+            step = 0;
+            console.log(step);
+        }
     })
 
     // functions
     function handleNumber(n) {
+        if (step === 0) {
+            outcomeDisplay.textContent = "";
+            currentNum = "";
+            previousNum = "";
+        }
+        step = 1;
+        console.log(step);
         currentNum += n;
         outcomeDisplay.textContent = currentNum;
+        console.log(currentNum);
     }
 
-    function handleOperator(op) {
-        operator = op;
-        previousNum = currentNum;
-        calculationDisplay.textContent = outcomeDisplay.textContent;
-        calculationDisplay.textContent += operator;
-        outcomeDisplay.textContent = "";
-        currentNum = "";
+    function handleOperator(op) {  
+        if (step === 0 && op === "×" && currentNum === "" ||
+        step === 0 && op === "÷" && currentNum === "" ||
+        step === 0 && op === "+" && currentNum === "") {
+            return;
+        }
+        else if (step === 0 && op === "-") {
+            operator = op;
+            currentNum = op;
+            outcomeDisplay.textContent = currentNum;
+            console.log(currentNum)
+            step = 2;
+        }  
+        else if (step !== 2) {
+            step = 2;
+            console.log(step);
+            operator = op;
+            previousNum = currentNum;
+            calculationDisplay.textContent = outcomeDisplay.textContent;
+            calculationDisplay.textContent += operator;
+            outcomeDisplay.textContent = "";
+            currentNum = "";
+        }
     }
 
-    //math
-    function add(a, b) {
-        return a + b;
-    }
-    
-    function subtract(a, b) {
-        return a - b;
-    }
-    
-    function multiply(a, b) {
-        return a * b;
-    }
-    
-    function divide(a, b) {
-        return a / b;
-    }
-    
     function calculate(operator, a, b) {
         a = Number(a);
         b = Number(b);
@@ -87,4 +102,19 @@
         }
     }
 
-
+    //math
+    function add(a, b) {
+        return a + b;
+    }
+    
+    function subtract(a, b) {
+        return a - b;
+    }
+    
+    function multiply(a, b) {
+        return a * b;
+    }
+    
+    function divide(a, b) {
+        return a / b;
+    }
