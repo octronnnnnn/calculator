@@ -127,75 +127,75 @@ document.addEventListener("DOMContentLoaded", () => {
             currentNum += ".";
         }
     }
+
+    function calculate(operator, a, b) {
+        a = Number(a);
+        b = Number(b);
+        switch (operator) {
+            case "+":
+                result = add(a, b);
+                break;
+            case "-":
+                result = subtract(a, b);
+                break;
+            case "×":
+                result = multiply(a, b);
+                break;
+            case "÷":
+                result = divide(a, b);
+                break; 
+            default:
+                return;
+        }
+    }
+
+    function round(n) {
+        n = parseFloat(n).toFixed(2);
+        return n;
+    }
+
+    function handleKeyPress(e) {
+        e.preventDefault();
+        if (e.key >= 0 && e.key <= 9) {
+            handleNumber(e.key);
+        }
+        if (
+            e.key === "Enter" ||
+            (e.key === "=" && currentNum != "" && previousNum != "")
+        ) {
+            compute();
+        }
+        if (e.key === "+" || e.key === "-") {
+            handleOperator(e.key);
+        }
+        if (e.key === "*") {
+            handleOperator("×");
+        }
+        if (e.key === "/") {
+            handleOperator("÷");
+        }
+        if (e.key === ",") {
+            appendDecimal();
+        }
+        if (e.key === "Backspace") {
+            deleteLastEntry();
+        }
+    }
+    
+    // math
+    function add(a, b) {
+        return a + b;
+    }
+    
+    function subtract(a, b) {
+        return a - b;
+    } 
+    
+    function multiply(a, b) {
+        return a * b;
+    }
+    
+    function divide(a, b) {
+        return a / b;
+    }
 }) 
-
-function calculate(operator, a, b) {
-    a = Number(a);
-    b = Number(b);
-    switch (operator) {
-        case "+":
-            result = add(a, b);
-            break;
-        case "-":
-            result = subtract(a, b);
-            break;
-        case "×":
-            result = multiply(a, b);
-            break;
-        case "÷":
-            result = divide(a, b);
-            break; 
-        default:
-            return;
-    }
-}
-
-function round(n) {
-    n = parseFloat(n).toFixed(2);
-    return n;
-}
-
-function handleKeyPress(e) {
-    e.preventDefault();
-    if (e.key >= 0 && e.key <= 9) {
-        handleNumber(e.key);
-    }
-    if (
-        e.key === "Enter" ||
-        (e.key === "=" && currentNum != "" && previousNum != "")
-    ) {
-        compute();
-    }
-    if (e.key === "+" || e.key === "-") {
-        handleOperator(e.key);
-    }
-    if (e.key === "*") {
-        handleOperator("×");
-    }
-    if (e.key === "/") {
-        handleOperator("÷");
-    }
-    if (e.key === ",") {
-        appendDecimal();
-    }
-    if (e.key === "Backspace") {
-        deleteLastEntry();
-    }
-}
-    
-// math
-function add(a, b) {
-    return a + b;
-}
-    
-function subtract(a, b) {
-    return a - b;
-}
-    
-function multiply(a, b) {
-    return a * b;
-}
-    
-function divide(a, b) {
-    return a / b;
-}
