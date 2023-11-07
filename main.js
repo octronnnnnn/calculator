@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             if (operator === "÷" && currentNum <= "0") {
                 clearAll();
-                outcomeDisplay.textContent = "Cannot divide by 0!"
+                outcomeDisplay.textContent = "Can't divide by 0!"
                 return;
             }
             calculate(operator, previousNum, currentNum);
