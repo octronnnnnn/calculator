@@ -4,7 +4,7 @@ let operator = "";
 let step = 0;
 let result ="";
 
-// reference all components
+// reference html components
 document.addEventListener("DOMContentLoaded", () => {
     let calculationDisplay = document.querySelector("#calculation");
     let outcomeDisplay = document.querySelector("#outcome");
@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // add event listeners
     window.addEventListener("keydown", handleKeyPress);
+    equalBtn.addEventListener("click", compute)
+    clearBtn.addEventListener("click", clearAll)
+    deleteBtn.addEventListener("click", deleteLastEntry)
+    decimalBtn.addEventListener("click", appendDecimal)
 
     numberBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => {
@@ -30,14 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
-    equalBtn.addEventListener("click", compute)
-
-    clearBtn.addEventListener("click", clearAll)
-
-    deleteBtn.addEventListener("click", deleteLastEntry)
-
-    decimalBtn.addEventListener("click", appendDecimal)
-
+    
     // functions
     function handleNumber(n) {
         if (step === 0) {

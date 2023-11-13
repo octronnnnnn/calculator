@@ -121,11 +121,7 @@ body {
     background-color: rgb(97, 182, 152);
 }
 
-.number:hover {
-    background-color: rgb(150, 255, 220);
-}
-
-#dot:hover {
+.number:hover, #decimal:hover {
     background-color: rgb(150, 255, 220);
 }
 
