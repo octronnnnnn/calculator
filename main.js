@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleOperator(op) {  
         if (previousNum !== "" && currentNum !== "") {
-            return;
+            compute();
         }
         if (step === 0 && op === "×" && currentNum === "" ||
         step === 0 && op === "÷" && currentNum === "" ||
@@ -112,7 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function deleteLastEntry() {
-        if(outcomeDisplay.textContent !== "") {
+        if (step === 0) {
+            return;
+        }
+        if (outcomeDisplay.textContent !== "") {
             currentNum = currentNum.slice(0, -1);
             outcomeDisplay.textContent = outcomeDisplay.textContent.slice(0, -1);
         }
@@ -150,6 +153,22 @@ document.addEventListener("DOMContentLoaded", () => {
         n = parseFloat(n).toFixed(2);
         return n;
     }
+    
+    function add(a, b) {
+        return a + b;
+    }
+    
+    function subtract(a, b) {
+        return a - b;
+    } 
+    
+    function multiply(a, b) {
+        return a * b;
+    }
+    
+    function divide(a, b) {
+        return a / b;
+    }
 
     function handleKeyPress(e) {
         e.preventDefault();
@@ -171,28 +190,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "/") {
             handleOperator("÷");
         }
-        if (e.key === ",") {
+        if (e.key === "," || e.key === ".") {
             appendDecimal();
         }
         if (e.key === "Backspace") {
             deleteLastEntry();
         }
-    }
-    
-    // math
-    function add(a, b) {
-        return a + b;
-    }
-    
-    function subtract(a, b) {
-        return a - b;
-    } 
-    
-    function multiply(a, b) {
-        return a * b;
-    }
-    
-    function divide(a, b) {
-        return a / b;
+        if (e.key === "Delete") {
+            clearAll();
+        }
     }
 }) 
